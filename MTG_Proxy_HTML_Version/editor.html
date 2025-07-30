@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTG Card Creator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <h1>This will show a card.</h1>
+            <div id="manaDisplay" style="margin-top: 1rem;"></div>
+        </div>
+
+        <div class="inputField">
+            <h1>Editor</h1>
+            <label for="frameType">Select A Frame Type:</label>
+            <select id="frameType" onchange="toggleHiddenBaseColor()">
+                <option value="">--Please select an option--</option>
+                <option value="standard">Standard</option>
+                <option value="borderless">Borderless</option>
+            </select>
+
+            <label for="imageUpload">Please upload an image (Note: Only accepts .jpg or .png filetypes)</label>
+            <input type="file" id="imageUpload" accept="image/jpeg, image/png">
+
+            <label for="colorIdentity">Select The Card's Color Identity:</label>
+            <select id="colorIdentity">
+                <option value="">--Please select an option--</option>
+                <option value="colorless">Colorless (◇)</option>
+                <option value="monoWhite">Mono-White (⚪️)</option>
+                <option value="monoBlue">Mono-Blue (🔵)</option>
+                <option value="monoBlack">Mono-Black (⚫️)</option>
+                <option value="monoRed">Mono-Red (🔴)</option>
+                <option value="monoGreen">Mono-Green (🟢)</option>
+                <option value="whiteBlue">Azorius (⚪️🔵)</option>
+                <option value="redWhite">Boros (⚪️🔴)</option>
+                <option value="blueBlack">Dimir (🔵⚫️)</option>
+                <option value="blackGreen">Golgari (⚫️🟢)</option>
+                <option value="redGreen">Gruul (🔴🟢)</option>
+                <option value="blueRed">Izzet (🔵🔴)</option>
+                <option value="whiteBlack">Orzhov (⚪️⚫️)</option>
+                <option value="blackRed">Rakdos (⚫️🔴)</option>
+                <option value="whiteGreen">Selesnya (⚪️🟢)</option>
+                <option value="blueGreen">Simic (🔵🟢)</option>
+                <option value="whiteBlackGreen">Abzan (⚪️⚫️🟢)</option>
+                <option value="whiteBlueGreen">Bant (⚪️🔵🟢)</option>
+                <option value="whiteBlueBlack">Esper (⚪️🔵⚫️)</option>
+                <option value="blueBlackRed">Grixis (🔵⚫️🔴)</option>
+                <option value="whiteBlueRed">Jeskai (⚪️🔵🔴)</option>
+                <option value="blackRedGreen">Jund (⚫️🔴🟢)</option>
+                <option value="whiteBlackRed">Mardu (⚪️⚫️🔴)</option>
+                <option value="whiteRedGreen">Naya (⚪️🔴🟢)</option>
+                <option value="blueBlackGreen">Sultai (🔵⚫️🟢)</option>
+                <option value="blueRedGreen">Temur (🔵🔴🟢)</option>
+                <option value="blueBlackRedGreen">Glint (🔵⚫️🔴🟢)</option>
+                <option value="whiteBlackRedGreen">Dune (⚪️⚫️🔴🟢)</option>
+                <option value="whiteBlueRedGreen">Ink (⚪️🔵🔴🟢)</option>
+                <option value="whiteBlueBlackGreen">Witch (⚪️🔵⚫️🟢)</option>
+                <option value="whiteBlueBlackRed">Yore (⚪️🔵⚫️🔴)</option>
+                <option value="whiteBlueBlackRedGreen">WUBRG (⚪️🔵⚫️🔴🟢)</option>
+            </select>
+
+            <label for="cardType">Select a Card Type:</label>
+            <select id="cardType" onchange="toggleHiddenPowerToughness()">
+                <option value="">--Please select an option--</option>
+                <option value="instant">Instant</option>
+                <option value="sorcery">Sorcery</option>
+                <option value="creature">Creature</option>
+                <option value="land">Land</option>
+            </select>
+
+            <label for="isLegendary">Is your card "Legendary"?</label>
+            <select id="isLegendary">
+                <option value="">--Please select an option--</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="baseColor" id="baseColorLabel">Select A Base Color:</label>
+            <select id="baseColor">
+                <option value="default"> Default</option>
+                <option value="white">White</option>
+                <option value="blue">Blue</option>
+                <option value="black">Black</option>
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+            </select>
+
+            <label for="cardName">Enter Card Name:</label>
+            <input type="text" id="cardName" placeholder="Type a name here">
+
+            <div>
+                <label for="cardManaValue">Use buttons below to customize mana value:</label>
+                <input type="text" id="cardManaValue">
+
+                <div class="mana-buttons">
+                    <button onclick="addManaSymbol('{W}')">Add White (⚪️)</button>
+                    <button onclick="addManaSymbol('{U}')">Add Blue (🔵)</button>
+                    <button onclick="addManaSymbol('{B}')">Add Black (⚫️)</button>
+                    <button onclick="addManaSymbol('{R}')">Add Red (🔴)</button>
+                    <button onclick="addManaSymbol('{G}')">Add Green (🟢)</button>
+                    <button onclick="addManaSymbol('{C}')">Add Colorless (◇)</button>
+                    <button onclick="addManaSymbol('W/U')">Add White/Blue Hybrid (⚪️🔵)</button>
+                    <button onclick="addManaSymbol('U/B')">Add Blue/Black Hybrid (🔵⚫️)</button>
+                    <button onclick="addManaSymbol('B/R')">Add Black/Red Hybrid (⚫️🔴)</button>
+                    <button onclick="addManaSymbol('R/G')">Add Red/Green Hybrid (🔴🟢)</button>
+                    <button onclick="addManaSymbol('G/W')">Add Green/White Hybrid (⚪️🟢)</button>
+                    <button onclick="addManaSymbol('W/B')">Add White/Black Hybrid (⚪️⚫️)</button>
+                    <button onclick="addManaSymbol('U/R')">Add Blue/Red Hybrid (🔵🔴)</button>
+                    <button onclick="addManaSymbol('B/G')">Add Black/Green Hybrid (⚫️🟢)</button>
+                    <button onclick="addManaSymbol('R/W')">Add Red/White Hybrid (⚪️🔴)</button>
+                    <button onclick="addManaSymbol('G/U')">Add Green/Blue Hybrid (🔵)🟢</button>
+                    <button onclick="addManaSymbol('X')">Add X</button>
+                    <button onclick="addManaSymbol('generic')">Add Generic (+1) </button>
+                    <button onclick="clearMana()">Clear Mana Value</button>
+                </div>
+                
+            </div>
+            
+
+            <label for="cardText">Enter Card Text:</label>
+            <textarea id="cardText" placeholder="Type your text here" rows="10" cols="50"></textarea>
+
+            <label for="cardOracleText">Enter Oracle Text:</label>
+            <input type="text" id="cardOracleText" placeholder="Type your text here">
+
+            <label for="creaturePower" id="creaturePowerLabel">Enter Creature's Power</label>
+            <input type="number" id="creaturePower" placeholder="1">
+
+            <label for="creatureToughness" id="creatureToughnessLabel">Enter Creature's Toughness (Cannot be 0)</label>
+            <input type="number" id="creatureToughness" placeholder="1">
+            
+        </div>
+    </div>
+    
+
+</body>
+</html>

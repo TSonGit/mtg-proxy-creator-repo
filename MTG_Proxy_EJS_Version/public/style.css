@@ -1,0 +1,77 @@
+body {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+
+    width: 100%;
+    height: auto;
+
+    padding-left: 20px;
+}
+
+.card {
+    position: fixed;
+    top: 50px;
+    left: 30px;
+
+    height: 700px;
+    aspect-ratio: 5 / 7;
+
+    border-style: solid;
+    border-radius: 2%;
+    border-color: black;
+    
+}
+
+.inputField {
+    display: grid;
+    margin-left: calc((700px * 5 / 7) + 75px); /* Matches the card's width */
+    gap: 1.5rem;
+    padding: 2rem;
+
+    min-height: 100vh;
+    width: calc(100% - ((700px * 5 / 7) + 75px));
+    box-sizing: border-box;
+
+    background-color: purple;
+}
+
+.mana-buttons {
+    display: flexbox;
+}
+
+#baseColorLabel {
+    display: none;
+}
+
+#baseColor {
+    display: none;
+}
+
+#creaturePowerLabel{
+    display: none;
+}
+
+#creaturePower{
+    display: none;
+}
+
+#creatureToughnessLabel{
+    display: none;
+}
+
+#creatureToughness{
+    display: none;
+}
+
+
+h1 {
+    color: black;
+    justify-self: center;
+}
