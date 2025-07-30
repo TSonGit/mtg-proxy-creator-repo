@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,30 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
+
 <body>
 
     <div class="container">
-        
+
         <div class="card">
-            <h1>This will show a card.</h1>
-            <div id="manaDisplay" style="margin-top: 1rem;"></div>
+            <div id="topOfCard">
+                <div id="cardName">This is the card name</div>
+                <div id="manaDisplay">This is the mana div</div>
+            </div>
+
+            <div id="middleOfCard">
+                <div id="cardImage">This is the card's image</div>
+            </div>
+
+            <div id="bottomOfCard">
+                <div id="cardText_Oracle">This is the Card text</div>
+                
+            </div>
+
+            <div id="creaturePower">this is Power</div>
+                <div id="creatureToughness">this is Toughness</div>
+            
+
         </div>
 
         <div class="inputField">
@@ -91,8 +109,8 @@
                 <option value="green">Green</option>
             </select>
 
-            <label for="cardName">Enter Card Name:</label>
-            <input type="text" id="cardName" placeholder="Type a name here">
+            <label for="cardNameInput">Enter Card Name:</label>
+            <input type="text" id="cardNameInput" placeholder="Type a name here">
 
             <div>
                 <label for="cardManaValue">Use buttons below to customize mana value:</label>
@@ -119,25 +137,27 @@
                     <button onclick="addManaSymbol('generic')">Add Generic (+1) </button>
                     <button onclick="clearMana()">Clear Mana Value</button>
                 </div>
-                
+
             </div>
-            
 
-            <label for="cardText">Enter Card Text:</label>
-            <textarea id="cardText" placeholder="Type your text here" rows="10" cols="50"></textarea>
 
-            <label for="cardOracleText">Enter Oracle Text:</label>
-            <input type="text" id="cardOracleText" placeholder="Type your text here">
+            <label for="cardTextInput">Enter Card Text:</label>
+            <textarea id="cardTextInput" placeholder="Type your text here" rows="10" cols="50"></textarea>
 
-            <label for="creaturePower" id="creaturePowerLabel">Enter Creature's Power</label>
-            <input type="number" id="creaturePower" placeholder="1">
+            <label for="cardOracleTextInput">Enter Oracle Text:</label>
+            <input type="text" id="cardOracleTextInput" placeholder="Type your text here">
 
-            <label for="creatureToughness" id="creatureToughnessLabel">Enter Creature's Toughness (Cannot be 0)</label>
-            <input type="number" id="creatureToughness" placeholder="1">
-            
+            <label for="creaturePowerInput" id="creaturePowerLabel">Enter Creature's Power</label>
+            <input type="number" id="creaturePowerInput" placeholder="1">
+
+            <label for="creatureToughnessInput" id="creatureToughnessLabel">Enter Creature's Toughness (Cannot be
+                0)</label>
+            <input type="number" id="creatureToughnessInput" placeholder="1">
+
         </div>
     </div>
-    
+
 
 </body>
+
 </html>

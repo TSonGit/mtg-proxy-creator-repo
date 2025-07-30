@@ -46,6 +46,63 @@ body {
     display: flexbox;
 }
 
+#topOfCard {
+    display: flex;
+    padding: 1rem;
+}
+
+#middleOfCard {
+    display: flex;
+    height: 400px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#bottomOfCard {
+    display: flex;
+    position: relative;
+    height: 238px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+#manaDisplay {
+    background-color: red;
+    width: 50%;
+    height: auto;
+    /* margin-left: 50%; */
+}
+
+#cardName {
+    background-color: blue;
+    width: 50%;
+    height: auto;
+}
+
+#cardImage {
+    background-color: green;
+    height: 100%;
+    width: 100%;
+}
+
+#cardText_Oracle {
+    background-color: yellow;
+    height: 100%;
+    width: 100%;
+
+}
+
+#creaturePower {
+    position: absolute;
+    background-color: white;
+}
+
+#creatureToughness {
+    position: absolute;
+    background-color: darkcyan;
+}
+
 #baseColorLabel {
     display: none;
 }

@@ -138,9 +138,9 @@ function createSymbolImage(symbol) {
   // The GitHub repo has files like: w.png, u.png, white-blue.png, etc.
   img.src = `images/${filename}.png`;
   img.alt = `{${symbol}}`;
-  img.style.width = '30px';
-  img.style.height = '30px';
-  img.style.margin = '4px';
+  img.style.width = '20px';
+  img.style.height = '20px';
+  img.style.margin = '3px';
 
   img.onerror = () => {
     console.error(`Failed to load image for symbol: ${symbol}`);
