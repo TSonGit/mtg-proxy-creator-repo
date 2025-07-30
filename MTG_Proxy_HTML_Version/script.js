@@ -57,27 +57,34 @@ const manaCounts = {
 };
 
 const manaImageMap = {
-  'W': 'white',
-  'U': 'blue',
-  'B': 'black',
-  'R': 'red',
-  'G': 'green',
-  'C': 'colorless',
-  'X': 'x',
-  '1': '1',
-  '2': '2',
-  '3': '3',
+  'W': 'mana-w',
+  'U': 'mana-u',
+  'B': 'mana-b',
+  'R': 'mana-r',
+  'G': 'mana-g',
+  'C': 'mana-c',
+  'X': 'mana-x',
+  '1': 'mana-1',
+  '2': 'mana-2',
+  '3': 'mana-3',
+  '4': 'mana-4',
+  '5': 'mana-5',
+  '6': 'mana-6',
+  '7': 'mana-7',
+  '8': 'mana-8',
+  '9': 'mana-9',
+  '10': 'mana-10',
   // hybrids:
-  'W/U': 'white-blue',
-  'U/B': 'blue-black',
-  'B/R': 'black-red',
-  'R/G': 'red-green',
-  'G/W': 'green-white',
-  'W/B': 'white-black',
-  'U/R': 'blue-red',
-  'B/G': 'black-green',
-  'R/W': 'red-white',
-  'G/U': 'green-blue',
+  'W/U': 'mana-wu',
+  'U/B': 'mana-ub',
+  'B/R': 'mana-br',
+  'R/G': 'mana-rg',
+  'G/W': 'mana-gw',
+  'W/B': 'mana-wb',
+  'U/R': 'mana-ur',
+  'B/G': 'mana-bg',
+  'R/W': 'mana-rw',
+  'G/U': 'mana-gu',
 };
 
 
@@ -95,6 +102,7 @@ function addManaSymbol(symbol) {
 }
 
 function updateManaDisplay() {
+    // console.log("Updating mana display with:", manaCounts);
     const order = ['X', 'generic', 'C', 'W', 'U', 'B', 'R', 'G',
         'W/U', 'U/B', 'B/R', 'R/G', 'G/W', 'W/B', 'U/R', 'B/G', 'R/W', 'G/U'];
 
@@ -126,7 +134,9 @@ function createSymbolImage(symbol) {
     return document.createTextNode(`{${symbol}}`);
   }
 
-  img.src = `https://svgs.scryfall.io/card-symbols/${filename}.svg`;
+  // Use PNG images from Manamoji Slack repo (replace with local path if downloaded)
+  // The GitHub repo has files like: w.png, u.png, white-blue.png, etc.
+  img.src = `images/${filename}.png`;
   img.alt = `{${symbol}}`;
   img.style.width = '30px';
   img.style.height = '30px';
@@ -141,14 +151,14 @@ function createSymbolImage(symbol) {
 }
 
 
-
 function clearMana() {
     for (const key in manaCounts) {
         manaCounts[key] = 0;
     }
 
     cardManaValue.value = '';
-    document.getElementById("manaDisplay").innerHTML = ''; // Clear visual display
+    updateManaDisplay(); // This re-renders the cleared state
+    // console.log("Cleared manaCounts:", JSON.stringify(manaCounts));
 
     alert("Mana value cleared.");
 }
